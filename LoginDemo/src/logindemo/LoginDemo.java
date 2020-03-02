@@ -54,7 +54,8 @@ public class LoginDemo {
                      
             if(userP.trim().equals(indexCheck)){
                JOptionPane.showMessageDialog(null, "You are logged in! Hello, "+userN+".");
-               System.exit(0); //End program
+               storeConnection();
+               //System.exit(0); //End program
                
             }else{
                 JOptionPane.showMessageDialog(null, "Password does not match username!"); 
@@ -64,4 +65,33 @@ public class LoginDemo {
             JOptionPane.showMessageDialog(null, "User not found!");
         } 
     }
-}
+    
+    public static void storeConnection(){
+        boolean end = false;
+        
+        while (end != true)
+        {
+            String input = JOptionPane.showInputDialog(null, "Signed in:"
+                +"\n1.Search Store."
+                +"\n2.Cart."
+                +"\n3.Log out.");
+            
+            switch(input){
+                case "1":
+                    JOptionPane.showMessageDialog(null, "Entering store");
+                    System.exit(0); //End program
+                    break;
+                case "2":
+                    JOptionPane.showMessageDialog(null, "The cart is empty...");
+                    break;
+                case "3":
+                    JOptionPane.showMessageDialog(null, "Logging out");
+                    end = true;
+                    break;
+                default:
+                    //default
+                    JOptionPane.showMessageDialog(null, "Invalid response");
+                }  
+            } 
+        }
+    }
